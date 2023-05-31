@@ -6,7 +6,7 @@ class IndexController
 {
     constructor()
     {
-        console.log("Controller");
+        // console.log("Controller");
 
         const token= $(`meta[name="csrf-token"]`).attr("content");
         const adatFeldolgozModel = new AdatFeldolgozModel(token);
@@ -16,7 +16,7 @@ class IndexController
 
         $(window).on("kategoriaSzures", (event)=>
         {
-            console.log(event.detail);
+            // console.log(event.detail);
             if(event.detail==0)
             {
                 adatFeldolgozModel.adatBe("/szavak", this.szavakAdat);
@@ -37,7 +37,6 @@ class IndexController
 
     temakAdat(tomb)
     {
-        console.log(tomb);
         const szuloElem =$("#szures");
         new TemakView(tomb, szuloElem)
     }

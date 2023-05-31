@@ -9,9 +9,11 @@ class SzavakView
         $(szuloElem).html(
             `
             <div id="tartalomElemek">
-                    <div class="fejlec">Angol</div>
-                    <div class="fejlec">Magyar</div>
-                    <div class="fejlec">Visszajelzés</div>
+                <div class="fejlec">
+                    <div>Angol</div>
+                    <div>Magyar</div>
+                    <div>Visszajelzés</div>
+                </div>
             </div>`);
             
             this.divElem=szuloElem.children("div:last-child")

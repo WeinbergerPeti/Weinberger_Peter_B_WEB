@@ -19,6 +19,7 @@
             <h2>Szavak</h2>
             <div id="szures"></div>
             <div id="tartalom"></div>
+            <div id="pontozas"></div>
         </article>
         <footer></footer>
     </main>
