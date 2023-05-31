@@ -1,8 +1,8 @@
 <?php
 
-use App\Http\Controllers\KategoriaController;
 use App\Http\Controllers\ProfileController;
-
+use App\Http\Controllers\SzavakController;
+use App\Http\Controllers\TemaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Route::get('/dashboard', function () {
@@ -30,10 +30,18 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// Route::get("/", [::class, "index"]);
-// Route::get("//{id}", [:class, "show"]);
-// Route::post("/", [::class, "store"]);
-// Route::put("//{id}", [::class, "update"]);
-// Route::delete("//{id}", [::class, "destroy"]);
+Route::get("/szavak", [SzavakController::class, "index"]);
+Route::get("/szavak/{id}", [SzavakController::class, "show"]);
+Route::post("/szavak", [SzavakController::class, "store"]);
+Route::put("/szavak/{id}", [SzavakController::class, "update"]);
+Route::delete("/szavak/{id}", [SzavakController::class, "destroy"]);
+
+Route::get("/temak", [TemaController::class, "index"]);
+Route::get("/temak/{id}", [TemaController::class, "show"]);
+Route::post("/temak", [TemaController::class, "store"]);
+Route::put("/temak/{id}", [TemaController::class, "update"]);
+Route::delete("/temak/{id}", [TemaController::class, "destroy"]);
+
+Route::get("tema_szures/{id}", [SzavakController::class, "temaSzures"]);
 
 require __DIR__.'/auth.php';
