@@ -42,6 +42,6 @@ Route::post("/temak", [TemaController::class, "store"]);
 Route::put("/temak/{id}", [TemaController::class, "update"]);
 Route::delete("/temak/{id}", [TemaController::class, "destroy"]);
 
-Route::get("tema_szures/{id}", [SzavakController::class, "temaSzures"]);
+Route::get("/tema_szures/{id}", [SzavakController::class, "temaSzures"]);
 
 require __DIR__.'/auth.php';
