@@ -1,6 +1,8 @@
 import AdatFeldolgozModel from "./AdatFeldolgozModel.js";
 import TemakView from "./TemakView.js";
+import SzavakHozzadView from "./SzavakHozzadView.js";
 import SzavakView from "./szavakView.js";
+import szavakModositTorolView from "./SzavakModositTorolView.js";
 
 class IndexController
 {
@@ -13,6 +15,28 @@ class IndexController
 
         adatFeldolgozModel.adatBe("/szavak", this.szavakAdat)
         adatFeldolgozModel.adatBe("/temak", this.temakAdat)
+
+        
+        this.szavakHozzad();
+        // this.szavakModosit();
+
+        $(window).on("MentesKatt", (event) => {
+            console.log(event.detail);
+            adatFeldolgozModel.adatUj("/szavak", event.detail);
+            location.reload();
+        })
+
+        $(window).on("ModositasKatt", (event) => {
+            console.log(event.detail);
+            adatFeldolgozModel.adatModosit(`/szavak/${event.detail.id}`, event.detail)
+            location.reload();
+        })
+
+        $(window).on("torlesKatt", (event) => {
+            console.log(event.detail);
+            adatFeldolgozModel.adatTorol(`/szavak/${event.detail}`);
+            location.reload();
+        })
 
         $(window).on("kategoriaSzures", (event)=>
         {
@@ -27,6 +51,17 @@ class IndexController
             }
         })
 
+    }
+
+    // szavakModosit()
+    // {
+    //     new szavakModositTorolView();
+    // }
+
+    szavakHozzad()
+    {
+        const szuloElem = $(".ujSzo");
+        new SzavakHozzadView(szuloElem);
     }
 
     szavakAdat(tomb)

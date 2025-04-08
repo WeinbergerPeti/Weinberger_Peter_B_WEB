@@ -8,7 +8,7 @@ class AdatFeldolgozModel
 
     egyAdat(vegpont, myCallBack)
     {
-        console.log(vegpont);
+        // console.log(vegpont);
         fetch(vegpont, 
         {
             method: 'GET',
@@ -32,7 +32,7 @@ class AdatFeldolgozModel
 
     adatBe(vegpont, myCallBack) 
     {
-        console.log(vegpont);
+        // console.log(vegpont);
         fetch(vegpont, 
         {
             method: 'GET',
@@ -46,7 +46,7 @@ class AdatFeldolgozModel
         .then((data) => 
         {
             this.#adatokTomb = data;
-            console.log(this.#adatokTomb);
+            // console.log(this.#adatokTomb);
             myCallBack(this.#adatokTomb);
         })
         .catch((error) => 
@@ -57,7 +57,7 @@ class AdatFeldolgozModel
 
     adatUj(vegpont, adat)
     {
-        console.log(adat);
+        // console.log(adat);
         console.log(JSON.stringify(adat));
         fetch(vegpont,
         {
@@ -70,9 +70,9 @@ class AdatFeldolgozModel
             },
         })
         .then((response)=>response.json())
-        .then((data)=>
+        .then((adat)=>
         {
-            console.log("Sikeres adatfelvitel" + data);
+            console.log(`Sikeres adatfelvitel ${adat}`);
         })
         .catch((error)=>
         {
@@ -80,21 +80,21 @@ class AdatFeldolgozModel
         });
     }
 
-    adatModosit(vegpont, adat, id)
+    adatModosit(vegpont, adat)
     {
-        console.log(adat);
-        console.log("módosít", vegpont);
-        console.log(id);
-        vegpont+="/" + id;
+        // console.log(adat);
+        // console.log(vegpont);
+        // console.log(id);
+        // vegpont += "/" + id;
         fetch(vegpont,
         {
             method: "PUT",
+            body: JSON.stringify(adat),
             headers:
             {
                 "content-type": "application/json",
                 "X-CSRF-TOKEN": this.token,
             },
-            body: JSON.stringify(adat),
         })
         .then((response)=>response.json())
         .then((data) => 
@@ -109,8 +109,8 @@ class AdatFeldolgozModel
 
     felhasznaloCimModosit(vegpont, adat)
     {
-        console.log(adat);
-        console.log("módosít", vegpont);
+        // console.log(adat);
+        // console.log("módosít", vegpont);
         fetch(vegpont,
         {
             method: "PUT",
@@ -132,11 +132,8 @@ class AdatFeldolgozModel
         });
     }
 
-    adatTorol(vegpont, adat)
+    adatTorol(vegpont)
     {
-        console.log("töröltem: ");
-        console.log(adat);
-        console.log(vegpont);
         fetch(vegpont,
         {
             method: "DELETE",
@@ -145,15 +142,8 @@ class AdatFeldolgozModel
                 "X-CSRF-TOKEN": this.token,
             },
         })
-        .then((response)=>response.json())
-        .then(() => 
-        {
-            console.log("Sikeres törlés");
-        })
-        .catch((error) => 
-        {
-            console.error('Error:', error);
-        });
+        .then(() => { console.log("Sikeres törlés");})
+        .catch((error) => { console.error('Error:', error); });
     }
 }
 

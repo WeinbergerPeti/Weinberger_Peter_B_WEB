@@ -44,4 +44,4 @@ Route::delete("/temak/{id}", [TemaController::class, "destroy"]);
 
 Route::get("/tema_szures/{id}", [SzavakController::class, "temaSzures"]);
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

@@ -30,9 +30,9 @@ class TemaController extends Controller
         $tema->save();
     }
 
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        $tema= new Tema();
+        $tema= Tema::find($id);
         $tema->nev = $request->nev;
         $tema->kat_id = $request->kat_id;
         $tema->kep_eleresi_ut = $request->kep_eleresi_ut;

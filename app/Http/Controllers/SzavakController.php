@@ -26,21 +26,21 @@ class SzavakController extends Controller
 
     public function store(Request $request)
     {
+        // dd($request).all();
         $szo= new Szavak();
-        $szo->nev = $request->nev;
-        $szo->kat_id = $request->kat_id;
-        $szo->kep_eleresi_ut = $request->kep_eleresi_ut;
-        $szo->leiras = $request->leiras;
+        $szo->angol = $request->angol;
+        $szo->magyar = $request->magyar;
+        $szo->temaId = $request->temaId;
         $szo->save();
     }
 
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        $szo= new Szavak();
-        $szo->nev = $request->nev;
-        $szo->kat_id = $request->kat_id;
-        $szo->kep_eleresi_ut = $request->kep_eleresi_ut;
-        $szo->leiras = $request->leiras;
+        $szo = Szavak::find($id);
+        $szo->angol = $request->angol;
+        $szo->angol = $request->angol;
+        $szo->magyar = $request->magyar;
+        $szo->temaId = $request->temaId;
         $szo->save();
     }
 

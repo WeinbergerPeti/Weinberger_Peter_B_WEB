@@ -4,15 +4,17 @@ class SzavakView
 {
     constructor(tomb, szuloElem)
     {
-        console.log("szavakView");
+        // console.log("szavakView");
 
         $(szuloElem).html(
             `
             <div id="tartalomElemek">
                 <div class="fejlec">
-                    <div>Angol</div>
-                    <div>Magyar</div>
-                    <div>Visszajelzés</div>
+                    <div><p>Angol</p></div>
+                    <div><p>Magyar<p></div>
+                    <div><p>Visszajelzés</p></div>
+                    <div><p>Módosít</p></div>
+                    <div><p>Törlés</p></div>
                 </div>
             </div>`);
             

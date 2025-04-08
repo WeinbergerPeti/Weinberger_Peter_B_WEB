@@ -4,7 +4,7 @@ class TemakView
 {
     constructor(tomb, szuloElem)
     {
-        console.log(tomb);
+        // console.log(tomb);
         this.ertek;
         $(szuloElem).html(`<select id="szures"><option value="0">Mindegyik</option></select>`);
 
